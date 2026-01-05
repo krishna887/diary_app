@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Content Page</title>
+  </head>
+  <body>
+
+    <h2>Save Content</h2>
+
+    <form th:action="@{/save}" method="post">
+      <label>Date:</label>
+      <input type="date" name="date" required />
+
+      <br><br>
+
+      <label>Content:</label><br>
+      <textarea name="content" rows="5" cols="40" required></textarea>
+
+      <br><br>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <h2>Get Content By Date</h2>
+
+    <form th:action="@{/getContent}" method="get">
+      <label>Date:</label>
+      <input type="date" name="date" required />
+
+      <button type="submit">Get Content</button>
+    </form>
+
+    <br>
+
+    <div th:if="${content}">
+      <h3>Saved Content:</h3>
+      <p th:text="${content}"></p>
+    </div>
+
+    <div th:if="${error}">
+      <p style="color:red;" th:text="${error}"></p>
+    </div>
+
+  </body>
+</html>

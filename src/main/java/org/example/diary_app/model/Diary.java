@@ -1,18 +1,18 @@
 package org.example.diary_app.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
-
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
 @Data
 public class Diary {
   @Id
- public int id;
-  public String content;
- public Date date;
-
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Integer id;
+  private String content;
+ private LocalDate date;
 }
